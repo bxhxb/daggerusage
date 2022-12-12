@@ -1,5 +1,5 @@
 package com.xbai.daggerusage.vo
 
-class Dessert {
-    val dessertType = "ba xi ice cream"
+class Dessert(val dessertType: String) {
+    
 }

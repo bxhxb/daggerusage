@@ -4,7 +4,9 @@ import com.xbai.daggerusage.vo.BasketballTeam
 import com.xbai.daggerusage.MainActivity
 import dagger.Component
 
-@Component
-interface BasketballTeamComponent {
-    //fun inject(activity: MainActivity)
-}
+//@Component
+//interface BasketballTeamComponent {
+//
+//    // Cannot inject the same class
+//    //fun inject(activity: MainActivity)
+//}

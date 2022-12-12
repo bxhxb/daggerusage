@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 //import com.xbai.daggerusage.di.DaggerBasketballTeamComponent
 import com.xbai.daggerusage.di.DaggerDinnerComponent
+import com.xbai.daggerusage.di.DaggerDinnerSubComponent
+import com.xbai.daggerusage.di.DinnerSubComponent
 import com.xbai.daggerusage.vo.BasketballTeam
 import com.xbai.daggerusage.vo.Dinner
 import javax.inject.Inject
@@ -21,10 +23,12 @@ class MainActivity : AppCompatActivity() {
 
         //DaggerBasketballTeamComponent.builder().build().inject(this)
 
-        DaggerDinnerComponent.builder().build().inject(this)
+        val subComponent = DaggerDinnerSubComponent.builder().build()
 
-        println("team member name is ${basketallTeam.member.name}, age is ${basketallTeam.member.age}")
+        DaggerDinnerComponent.builder().dinnerSubComponent(subComponent).build().inject(this)
 
         println("dinner staple food is ${dinner.stapleFood.food}, dessert is ${dinner.dessert.dessertType}")
+
+        println("team member name is ${basketallTeam.member.name}, age is ${basketallTeam.member.age}")
     }
 }
