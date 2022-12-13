@@ -6,7 +6,7 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-class DinnerSubModule {
+class DetailContentModule {
 
     @Provides
     fun provideDessert(): Dessert = Dessert("chocolate ice cream")
