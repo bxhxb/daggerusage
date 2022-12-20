@@ -25,13 +25,9 @@ class MainActivity : AppCompatActivity() {
 
         //DaggerBasketballTeamComponent.builder().build().inject(this)
 
-        val detailContentComponent = DaggerDetailContentComponent.builder().detailContentModule(
-            DetailContentModule()
-        ).build()
+        val detailContentComponent = DaggerDetailContentComponent.builder().build()
 
-        DaggerDinnerComponent.builder().detailContentComponent(detailContentComponent).dinnerModule(
-            DinnerModule()
-        ).build().inject(this)
+        DaggerDinnerComponent.builder().detailContentComponent(detailContentComponent).build().inject(this)
 
         println("${APP_TAG}: dinner staple food is ${dinner.stapleFood.food}, dessert is ${dinner.dessert.dessertType}")
 
