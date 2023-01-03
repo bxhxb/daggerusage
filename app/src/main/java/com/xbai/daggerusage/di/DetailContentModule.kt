@@ -5,12 +5,12 @@ import com.xbai.daggerusage.vo.StapleFood
 import dagger.Module
 import dagger.Provides
 
-@Module
-class DetailContentModule {
-
-    @Provides
-    fun provideDessert(): Dessert = Dessert("chocolate ice cream")
-
-    @Provides
-    fun provideStapleFood(): StapleFood = StapleFood("rice")
-}
+//@Module
+//class DetailContentModule {
+//
+//    @Provides
+//    fun provideDessert(): Dessert = Dessert("chocolate ice cream")
+//
+//    @Provides
+//    fun provideStapleFood(): StapleFood = StapleFood("rice")
+//}

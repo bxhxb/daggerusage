@@ -3,15 +3,14 @@ package com.xbai.daggerusage
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.xbai.daggerusage.GlobalString.Companion.APP_TAG
-import com.xbai.daggerusage.di.DaggerDetailContentComponent
 import com.xbai.daggerusage.di.DaggerDinnerComponent
-import com.xbai.daggerusage.di.DetailContentModule
 import com.xbai.daggerusage.di.DinnerModule
 //import com.xbai.daggerusage.di.DaggerBasketballTeamComponent
 import com.xbai.daggerusage.vo.BasketballTeam
 import com.xbai.daggerusage.vo.Dinner
 import javax.inject.Inject
 
+// In this di-subcomponent branch, I tested the injection with subcomponent mode.
 class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var basketallTeam: BasketballTeam
@@ -23,11 +22,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //DaggerBasketballTeamComponent.builder().build().inject(this)
-
-        val detailContentComponent = DaggerDetailContentComponent.builder().build()
-
-        DaggerDinnerComponent.builder().detailContentComponent(detailContentComponent).build().inject(this)
+        DaggerDinnerComponent.builder().build().dinnerAlterSubComponentBuilder().build().inject(this)
 
         println("${APP_TAG}: dinner staple food is ${dinner.stapleFood.food}, dessert is ${dinner.dessert.dessertType}")
 

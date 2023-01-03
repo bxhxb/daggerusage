@@ -3,20 +3,18 @@ package com.xbai.daggerusage.di
 import com.xbai.daggerusage.MainActivity
 import com.xbai.daggerusage.vo.Dinner
 import dagger.Component
+import javax.inject.Scope
+import javax.inject.Singleton
 
 
-@Component(
-    modules = [DinnerModule::class],
-    /* use dependencies subjectively or use @SubComponent passively */
-    dependencies = [DetailContentComponent::class]
-)
+@Singleton
+@Component(modules = [DinnerModule::class])
 interface DinnerComponent {
 
-    //fun buildDinnerAlterSubComponent(): DinnerAlterSubComponent
+    @Component.Builder
+    interface Builder {
+        fun build(): DinnerComponent
+    }
 
-    //fun detailContentComponent(detailContentModule: DetailContentModule): DetailContentComponent
-
-    //fun dinner(): Dinner
-
-    fun inject(activity: MainActivity)
+    fun dinnerAlterSubComponentBuilder(): DinnerAlterSubComponent.Builder
 }

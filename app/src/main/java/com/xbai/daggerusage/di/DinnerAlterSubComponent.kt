@@ -1,15 +1,24 @@
 package com.xbai.daggerusage.di
 
+import com.xbai.daggerusage.MainActivity
 import dagger.Subcomponent
+import javax.inject.Scope
 
-// Another subcomponent of DinnerComponent
+// Using subcomponent for DinnerComponent
 
-//@Subcomponent(modules = [DinnerAlterSubModule::class])
-//interface DinnerAlterSubComponent {
-//
-////    @Subcomponent.Builder
-////    interface Builder {
-////        fun
-////    }
-////    fun buildDinnerAlterSubComponent(): DinnerAlterSubComponent
-//}
+@Scope
+@Retention(AnnotationRetention.RUNTIME)
+annotation class SubModuleScope
+
+
+@Subcomponent(modules = [DinnerAlterSubModule::class])
+@SubModuleScope
+interface DinnerAlterSubComponent {
+
+    @Subcomponent.Builder
+    interface Builder {
+        fun build(): DinnerAlterSubComponent
+    }
+
+    fun inject(activity: MainActivity)
+}
