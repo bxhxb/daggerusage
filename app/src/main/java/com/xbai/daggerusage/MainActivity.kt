@@ -22,7 +22,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        DaggerDinnerComponent.builder().build().dinnerAlterSubComponentBuilder().build().inject(this)
+        DaggerDinnerComponent.builder().dessertType("Dark").build()
+            .dinnerAlterSubComponentBuilder().build().inject(this)
 
         println("${APP_TAG}: dinner staple food is ${dinner.stapleFood.food}, dessert is ${dinner.dessert.dessertType}")
 

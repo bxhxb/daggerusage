@@ -9,8 +9,9 @@ import dagger.Provides
 
 @Module
 class DinnerModule {
+
     @Provides
-    fun provideDessert(): Dessert = Dessert("chocolate ice cream")
+    fun provideDessert(dessert: String): Dessert = Dessert(dessert)
 
     @Provides
     fun provideStapleFood(): StapleFood = StapleFood("rice")
